@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function () { 
   // Functions
   function renderButtons() {
       $(".button_container").empty();
@@ -6,7 +6,7 @@ $(document).ready(function () {
     for (let i = 0; i < starterBtn.length; i++) {
       let Btn = $("<button>")
         .addClass("professionBtn")
-        .attr("data-Btn", starterBtn[i])
+        .attr("data-attr", starterBtn[i])
         .text(starterBtn[i]);
       $(".button_container").append(Btn);
     }
@@ -21,10 +21,15 @@ $(document).ready(function () {
   // capture user input and display in btn area
   $("#select-profession").on("click", function () {
     event.preventDefault();
-    //console.log("clicked");
     let userInput = $("#user-input").val();
-    //console.log(userInput);
     starterBtn.push(userInput);
     renderButtons();
   });
+
+  // On click on buttons to preform ajax call
+  $(document).on("click",".professionBtn",function(){
+      let name = $(this).attr("data-attr");
+      console.log(name);
+  });
+
 });
