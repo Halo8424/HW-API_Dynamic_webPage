@@ -1,19 +1,31 @@
 $(document).ready(function () {
+  // buttons Array
+  const starterArray = ["teacher", "chef", "lawyer", "dentist"];
+
   // Functions
-  function renderButtons() {
+  function clearButtonContainer() {
     $(".button_container").empty();
+  }
+  function clearUserInput() {
     $("#user-input").val(" ");
-    for (let i = 0; i < starterBtn.length; i++) {
+  }
+  function clearApiDumpContainer(){
+    $(".api_dump_container").empty();
+  }
+  function renderButtons() {
+    clearButtonContainer();
+    clearUserInput();
+    for (let i = 0; i < starterArray.length; i++) {
       let Btn = $("<button>")
         .addClass("professionBtn")
-        .attr("data-attr", starterBtn[i])
-        .text(starterBtn[i]);
+        .attr("data-attr", starterArray[i])
+        .text(starterArray[i]);
       $(".button_container").append(Btn);
     }
   }
 
   function populateResults(results) {
-    $(".api_dump_container").empty();
+    clearApiDumpContainer();
 
     for (let i = 0; i < results.length; i++) {
       // Create html elements to hold api response data to display on document
@@ -39,17 +51,14 @@ $(document).ready(function () {
       $(".api_dump_container").append($newDiv);
     }
   }
-  // buttons Array
-  const starterBtn = ["teacher", "chef", "lawyer", "dentist"];
-  //console.log(starterBtn);
-  // loop over create btns and display to page
+
   renderButtons();
 
   // capture user input and display in btn area
   $("#select-profession").on("click", function () {
     event.preventDefault();
     let userInput = $("#user-input").val();
-    starterBtn.push(userInput);
+    starterArray.push(userInput);
     renderButtons();
   });
 
@@ -59,7 +68,7 @@ $(document).ready(function () {
     //console.log(searchTerm);
     let queryURL = `https://api.giphy.com/v1/gifs/search?api_key=TazZ8BgEYTeO4Z3mimF4qz3yOKpTlQpH&q=${searchTerm}&limit=10&offset=0&rating=g&lang=en`;
 
-    $.ajax({ 
+    $.ajax({
       url: queryURL,
       method: "GET",
     }).then(function (res) {
@@ -81,6 +90,4 @@ $(document).ready(function () {
       $(this).attr("data-state", "still");
     }
   });
-
-
 });
