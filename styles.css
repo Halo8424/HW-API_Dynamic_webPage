@@ -13,4 +13,7 @@
   transition: all 0.2s;
 }
 
-
+.professionBtn:hover {
+  color: #000000;
+  background-color: #ffffff;
+}
