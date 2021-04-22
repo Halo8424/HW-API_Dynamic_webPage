@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>API Dynamic Webpage</title>
-    <link rel="stylesheet" type="text/css" href="reset.css">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" type="text/css" href="reset.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
     <div class="container">
-        <div class="button_container"></div>
-        <form action=""></form>
-        <div class="api_dump_container"></div>
+      <div class="button_container"></div>
+      <form action="">
+        <!-- Label for Text Box -->
+        <label for="user-input">Choose Your Profession</label>
+
+        <!-- Text Input Box -->
+        <input type="text" id="user-input" /><br />
+
+        <!-- Submit Button -->
+        <input id="select-profession" type="submit" value="Search" />
+      </form>
+      <div class="api_dump_container"></div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
