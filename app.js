@@ -28,9 +28,9 @@ $(document).ready(function () {
 
   // On click on buttons to preform ajax call
   $(document).on("click",".professionBtn",function(){
-      let name = $(this).attr("data-attr");
-      //console.log(name);
-      let queryURL = "";
+      let searchTerm = $(this).attr("data-attr");
+      //console.log(searchTerm);
+      let queryURL = `https://api.giphy.com/v1/gifs/search?api_key=TazZ8BgEYTeO4Z3mimF4qz3yOKpTlQpH&q=${searchTerm}&limit=25&offset=0&rating=g&lang=en`;
 
       $.ajax({
           url: queryURL,
