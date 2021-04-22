@@ -13,6 +13,8 @@ $(document).ready(function () {
   }
 
   function populateResults(results) {
+    $(".api_dump_container").empty();
+
     for (let i = 0; i < results.length; i++) {
       // Create html elements to hold api response data to display on document
       let $newDiv = $("<div>").addClass("card");
@@ -79,4 +81,6 @@ $(document).ready(function () {
       $(this).attr("data-state", "still");
     }
   });
+
+
 });
