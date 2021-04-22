@@ -12,29 +12,31 @@ $(document).ready(function () {
     }
   }
 
-  function populateResults(results){
-    for(let i = 0; i < results.length; i++){
-    // Create html elements to hold api response data to display on document
-    let $newDiv = $("<div>").addClass("card");
-    let rating = results[i].rating;
-    
-    let animated = results[i].images.fixed_height.url;
-    let still = results[i].images.fixed_height_still.url;
+  function populateResults(results) {
+    for (let i = 0; i < results.length; i++) {
+      // Create html elements to hold api response data to display on document
+      let $newDiv = $("<div>").addClass("card");
+      let rating = results[i].rating;
 
-    let $img= $("<img>");
-    $img.attr("src",still);
-    $img.attr("data-still",still);
-    $img.attr("data-animate",animated);
-    $img.attr("data-state",still);
-    $img.addClass("profession-image");
+      let animated = results[i].images.fixed_height.url;
+      let still = results[i].images.fixed_height_still.url;
 
-    let $p = $("<p>").addClass("card-text").text("Rating: " + rating);
+      let $img = $("<img>");
+      $img.attr("src", still);
+      $img.attr("data-still", still);
+      $img.attr("data-animate", animated);
+      $img.attr("data-state", still);
+      $img.addClass("profession-image");
 
-    $newDiv.append($p);
-    $newDiv.append($img);
-    $(".api_dump_container").append($newDiv);
+      let $p = $("<p>")
+        .addClass("card-text")
+        .text("Rating: " + rating);
+
+      $newDiv.append($p);
+      $newDiv.append($img);
+      $(".api_dump_container").append($newDiv);
     }
-  };
+  }
   // buttons Array
   const starterBtn = ["teacher", "chef", "lawyer", "dentist"];
   //console.log(starterBtn);
@@ -61,8 +63,20 @@ $(document).ready(function () {
     }).then(function (res) {
       console.log(res);
       let results = res.data;
-        populateResults(results);
+      populateResults(results);
     });
   });
-});
 
+  // On click event to animate gifs
+  $(document).on("click", ".profession-image", function () {
+    let state = $(this).attr("data-state");
+
+    if (state === "still") {
+      $(this).attr("src", $(this).attr("data-animate"));
+      $(this).attr("data-state", "animate");
+    } else {
+      $(this).attr("src", $(this).attr("data-still"));
+      $(this).attr("data-state", "still");
+    }
+  });
+});
