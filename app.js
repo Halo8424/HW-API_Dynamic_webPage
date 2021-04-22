@@ -18,5 +18,10 @@ $(document).ready(function () {
   // loop over create btns and display to page
   renderButtons();
 
-  // 
+  // capture user input and display in btn area
+  $("#select-profession").on("click",function(){
+      event.preventDefault();
+      console.log("clicked");
+  });
+
 });
