@@ -1,3 +1,8 @@
+.button_container{
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+}
 .professionBtn {
   display: inline-block;
   padding: 0.353em 1.25em;
@@ -8,7 +13,7 @@
   text-decoration: none;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
-  color: #ffffff;
+  color: #a09898;
   text-align: center;
   transition: all 0.2s;
 }
@@ -16,4 +21,11 @@
 .professionBtn:hover {
   color: #000000;
   background-color: #ffffff;
+}
+
+@media all and (max-width:30em){
+    .professionBtn{
+        display: inline-block;
+        margin:0.4em auto;
+    }
 }

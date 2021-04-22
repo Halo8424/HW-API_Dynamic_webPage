@@ -2,7 +2,7 @@ $(document).ready(function () {
   // Functions
 
   // buttons Array
-  const starterBtn = ["teacher", "chef", "lawyer", "dentist"];
+  const starterBtn = ["teacher", "chef", "lawyer", "dentist","teacher", "chef", "lawyer", "dentist"];
   //console.log(starterBtn);
   // loop over create btns and display to page
   for (let i = 0; i < starterBtn.length; i++) {
