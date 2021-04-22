@@ -29,7 +29,15 @@ $(document).ready(function () {
   // On click on buttons to preform ajax call
   $(document).on("click",".professionBtn",function(){
       let name = $(this).attr("data-attr");
-      console.log(name);
+      //console.log(name);
+      let queryURL = "";
+
+      $.ajax({
+          url: queryURL,
+          method: "GET"
+      }).then(function(res){
+        console.log(res);
+      });
   });
 
 });
