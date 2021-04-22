@@ -12,7 +12,21 @@ $(document).ready(function () {
     }
   }
 
+  function populateResults(results){
+    for(let i = 0; i < results.length; i++){
+    // Create html elements to hold api response data to display on document
+    let $newDiv = $("<div>").addClass("card");
+    let rating = results[i].rating;
 
+
+    let $img= $("<img>").addClass("card-img-top").attr("src","");
+    let $h5 = $("<h5>").addClass("card-title").text("");
+    let $p = $("<p>").addClass("card-text").text("Rating: " + rating);
+
+    $newDiv.append($p);
+    $(".api_dump_container").append($newDiv);
+    }
+  };
   // buttons Array
   const starterBtn = ["teacher", "chef", "lawyer", "dentist"];
   //console.log(starterBtn);
@@ -38,24 +52,9 @@ $(document).ready(function () {
       method: "GET",
     }).then(function (res) {
       console.log(res);
+      let results = res.data;
+        populateResults(results);
     });
-
-    // Create html elements to hold api response data to display on document
-    let $newDiv = $("<div>").addClass("card");
-    let $div = $("<div").addClass("card-body");
-    let $img= $("<img>").addClass("card-img-top").attr("src","");
-    let $h5 = $("<h5>").addClass("card-title").text("");
-    let $p = $("<p>").addClass("card-text").text("");
-
-
   });
 });
 
-{/* <div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div> */}
