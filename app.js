@@ -21,7 +21,9 @@ $(document).ready(function () {
   // capture user input and display in btn area
   $("#select-profession").on("click",function(){
       event.preventDefault();
-      console.log("clicked");
+      //console.log("clicked");
+      let userInput = $("#user-input").val();
+      //console.log(userInput);
   });
 
 });
