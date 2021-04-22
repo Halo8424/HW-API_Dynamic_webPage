@@ -59,7 +59,7 @@ $(document).ready(function () {
     //console.log(searchTerm);
     let queryURL = `https://api.giphy.com/v1/gifs/search?api_key=TazZ8BgEYTeO4Z3mimF4qz3yOKpTlQpH&q=${searchTerm}&limit=10&offset=0&rating=g&lang=en`;
 
-    $.ajax({
+    $.ajax({ 
       url: queryURL,
       method: "GET",
     }).then(function (res) {
