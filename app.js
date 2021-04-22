@@ -17,13 +17,21 @@ $(document).ready(function () {
     // Create html elements to hold api response data to display on document
     let $newDiv = $("<div>").addClass("card");
     let rating = results[i].rating;
+    
+    let animated = results[i].images.fixed_height.url;
+    let still = results[i].images.fixed_height_still.url;
 
+    let $img= $("<img>");
+    $img.attr("src",still);
+    $img.attr("data-still",still);
+    $img.attr("data-animate",animated);
+    $img.attr("data-state",still);
+    $img.addClass("profession-image");
 
-    let $img= $("<img>").addClass("card-img-top").attr("src","");
-    let $h5 = $("<h5>").addClass("card-title").text("");
     let $p = $("<p>").addClass("card-text").text("Rating: " + rating);
 
     $newDiv.append($p);
+    $newDiv.append($img);
     $(".api_dump_container").append($newDiv);
     }
   };
